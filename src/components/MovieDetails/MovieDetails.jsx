@@ -56,7 +56,7 @@ const MovieDetails = () => {
     };
 
     fetchDetails();
-  }, [movieId]);
+  }, [movieId, error]);
 
   if (movie && Object.keys(movie)?.length === 0) {
     return (
