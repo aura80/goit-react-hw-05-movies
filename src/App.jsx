@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 // import Home from './components/Home/Home';
 // import Movies from './components/Movies/Movies';
@@ -19,26 +19,26 @@ const NotFound = lazy(() => import('./components/NotFound/NotFound'));
 
 const App = () => {
   return (
-    <Container>
-      <Header>
-        <StyledLink to="/" end>
-          Home
-        </StyledLink>
-        <StyledLink to="/movies">Movies</StyledLink>
-      </Header>
-      <Suspense fallback={<div>Loading.....</div>}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:movieId" element={<MovieDetails />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
-          </Route>
-          {/* * a wildcard route */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </Container>
+      <Container>
+        <Header>
+          <StyledLink to="/" end>
+            Home
+          </StyledLink>
+          <StyledLink to="/movies">Movies</StyledLink>
+        </Header>
+        <Suspense fallback={<div>Loading.....</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/movies" element={<Movies />} />
+            <Route path="/movies/:movieId" element={<MovieDetails />}>
+              <Route path="cast" element={<Cast />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
+            {/* * a wildcard route */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </Container>
   );
 };
 
